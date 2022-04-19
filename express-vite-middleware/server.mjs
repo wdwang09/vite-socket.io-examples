@@ -3,7 +3,8 @@ import { createServer as createHttpServer } from 'http'
 import express from 'express'
 import { createServer as createViteServer } from 'vite'
 import { Server } from 'socket.io'
-;(async () => {
+
+async function server() {
   const productionRootPath = 'dist'
   const isProductionMode = env.NODE_ENV === 'production'
 
@@ -40,4 +41,6 @@ import { Server } from 'socket.io'
 
   httpServer.listen(3000)
   console.log('> Local: http://localhost:3000/')
-})()
+}
+
+server()
