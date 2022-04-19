@@ -1,0 +1,20 @@
+{
+  "name": "vue",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "start-server": "node server.mjs",
+    "dev": "vite --port 3000 --strictPort",
+    "build": "vite build",
+    "preview": "vite preview --port 3000 --strictPort"
+  },
+  "dependencies": {
+    "socket.io": "^4.4.1",
+    "socket.io-client": "^4.4.1",
+    "vue": "^3.2.25"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.3.1",
+    "vite": "^2.9.2"
+  }
+}
