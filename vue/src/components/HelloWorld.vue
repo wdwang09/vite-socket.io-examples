@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import { io } from 'socket.io-client'
+import LastMessage from './LastMessage.vue'
 
 defineProps({
   msg: String
@@ -9,7 +10,7 @@ defineProps({
 const socket = io('localhost:3001')
 
 const isConnected = ref(false)
-const lastMessage = ref(null)
+const lastMessage = ref('')
 
 onMounted(() => {
   socket.on('connect', () => {
@@ -35,6 +36,6 @@ function sendMessage() {
 <template>
   <h1>{{ msg }}</h1>
   <p>Connected: {{ isConnected }}</p>
-  <p>Last message: {{ lastMessage || '-' }}</p>
+  <LastMessage :lastMessage="lastMessage" />
   <button type="button" @click="sendMessage">Say hello!</button>
 </template>
